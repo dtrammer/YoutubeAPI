@@ -5,5 +5,5 @@ Requires :
     - requests 2.12
 
 Install : 
-    - Download the wheel file in the 'dist' folder
+    - Download the wheel file of the 'dist' folder
     - >>pip install c:\\path\\to\\wheel\\file\\YoutubeV3API-0.1.1-py3-none-any.whl
