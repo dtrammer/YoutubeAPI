@@ -15,9 +15,13 @@ class Channel:
     def __str__(self):
         return self.id + " - " + self.title
 
+    def str_all(self):
+        return self.id + " - " + self.title + " - " + self.desc + " - " + self.pubdate + " - " + self.thumb_default + " - " + self.thumb_medium + " - " + self.thumb_high
+
 class Video:
     def __init__(self , id , title , desc , pubdate  ,th_d , th_m , th_h , channeltitle):
     #Yotube Video model
+        self.channelid = 0
         self.id = id
         self.pubdate = pubdate
         self.title = title

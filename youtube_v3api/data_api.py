@@ -101,3 +101,44 @@ def get_video_stats(videosContainer):
                 videosContainer[elementCount].stats["comments"] = stats['statistics']['commentCount']
                 elementCount += 1
     return videosContainer
+
+def search_channels(keywords , maxResult ):
+    #Retrieves channel information based on search criteria, returns -> collection of model.Channel instances
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=viewCount&q=" + keywords + "&type=channel&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + GoogleAPIKey
+    r = requests.get(url)
+    channelContainer = []
+    if r.status_code == 200 :
+        result = json.loads(r.text)
+        for info in result['items']:
+            channelContainer.append( Channel(
+                info['snippet']['channelId'],
+                info['snippet']['title'],
+                info['snippet']['description'],
+                info['snippet']['publishedAt'],
+                info['snippet']['thumbnails']['default']['url'],
+                info['snippet']['thumbnails']['medium']['url'],
+                info['snippet']['thumbnails']['high']['url']
+            ))
+    return channelContainer
+
+def search_videos(keywords , maxResult ):
+    #Retrieves videos information based on search criteria, returns -> collection of model.Video instances
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=viewCount&q=" + keywords + "&type=video&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + GoogleAPIKey
+    r = requests.get(url)
+    videoContainer = []
+    if r.status_code == 200 :
+        result = json.loads(r.text)
+        for info in result['items']:
+            videoContainer.append( Video(
+                info['id']['videoId'],
+                info['snippet']['title'],
+                info['snippet']['description'],
+                info['snippet']['publishedAt'],
+                info['snippet']['thumbnails']['default']['url'],
+                info['snippet']['thumbnails']['medium']['url'],
+                info['snippet']['thumbnails']['high']['url'],
+                info['snippet']['channelTitle']
+            ))
+    return videoContainer
+
+
