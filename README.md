@@ -5,8 +5,7 @@
     - requests 2.12
 
 <h2>Install :</h2>
-Download the wheel file in the 'dist' folder
-Launch virtual env in command prompt and enter :
+Download the wheel file from the 'dist' folder and launch virtual env in command prompt and enter :
 
     >>pip install c:\path\to\wheel\file\YoutubeV3API-0.1.1-py3-none-any.whl
 
