@@ -1,0 +1,10 @@
+setup.py
+YoutubeV3API.egg-info/PKG-INFO
+YoutubeV3API.egg-info/SOURCES.txt
+YoutubeV3API.egg-info/dependency_links.txt
+YoutubeV3API.egg-info/requires.txt
+YoutubeV3API.egg-info/top_level.txt
+youtube_v3api/__init__.py
+youtube_v3api/data_api.py
+youtube_v3api/model.py
+youtube_v3api/youtube.py
