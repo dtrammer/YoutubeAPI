@@ -11,20 +11,7 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
 
 
 <h2>Quick usage :</h2>
-
-<<<<<<< HEAD
-Quick usage :
     
-    from youtube_v3api import youtube
-
-    #Retrieves a channel information based on the channelid, returns -> model.Channel object
-    mychannel = Channel()
-    mychannel = youtube.get_channel(channelid , APIKey)
-    
-    '''Retrieves videos information (exclusive video stats for each Video, is faster than with stats) based on a channelid returns -> collection of model.Video elements
-    by default the youtube query response is ordered by viewCount. 
-    OrderBy valid values : viewCount, title, rating, date '''
-=======
     from youtube_v3api import youtube
 
     #Retrieves a channel information based on the channelid, returns -> model.Channel object
@@ -37,7 +24,6 @@ Quick usage :
     by default the youtube query response is ordered by viewCount.
     OrderBy valid values : viewCount, title, rating, date '''
     
->>>>>>> f7b49b08790e06922f7c23c4512172a6f9753e8b
     videoElements = []
     videoElements = youtube.get_videos_without_stats(channelid , APIKey , maxResult = 5 , orderBy = 'viewCount')
 
