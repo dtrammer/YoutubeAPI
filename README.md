@@ -3,6 +3,7 @@
 <h2>Requires :</h2>
     - Python 3.5.2
     - requests 2.12
+    - Youtube APIKey that can be obtained with your google account in the developer console
 
 <h2>Install :</h2>
 Download the wheel file from the 'dist' folder and launch virtual env in command prompt and enter :
