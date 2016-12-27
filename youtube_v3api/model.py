@@ -19,9 +19,9 @@ class Channel:
         return self.id + " - " + self.title + " - " + self.desc + " - " + self.pubdate + " - " + self.thumb_default + " - " + self.thumb_medium + " - " + self.thumb_high
 
 class Video:
-    def __init__(self , id , title , desc , pubdate  ,th_d , th_m , th_h , channeltitle):
+    def __init__(self , id , title , desc , pubdate  ,th_d , th_m , th_h , channelid , channeltitle):
     #Yotube Video model
-        self.channelid = 0
+        self.channelid = channelid
         self.id = id
         self.pubdate = pubdate
         self.title = title

@@ -56,6 +56,7 @@ def get_videos(channelid , maxresult ):
                     video['snippet']['thumbnails']['default']['url'],
                     video['snippet']['thumbnails']['medium']['url'],
                     video['snippet']['thumbnails']['high']['url'],
+                    video['snippet']['channelId'],
                     video['snippet']['channelTitle']
                 ))
                 
@@ -137,6 +138,7 @@ def search_videos(keywords , maxResult ):
                 info['snippet']['thumbnails']['default']['url'],
                 info['snippet']['thumbnails']['medium']['url'],
                 info['snippet']['thumbnails']['high']['url'],
+                info['snippet']['channelId'],
                 info['snippet']['channelTitle']
             ))
     return videoContainer
