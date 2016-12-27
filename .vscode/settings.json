@@ -1,0 +1,9 @@
+{
+    "python.pythonPath":"C:\\Users\\Apollo\\OneDrive\\DEV\\02.PYTHON\\YoutubeAPI\\Scripts\\python",
+    "python.autoComplete.extraPaths": [
+        "C:\\Users\\Apollo\\OneDrive\\DEV\\02.PYTHON\\YoutubeAPI\\",
+        "C:\\Users\\Apollo\\OneDrive\\DEV\\02.PYTHON\\YoutubeAPI\\Scripts",
+        "C:\\Users\\Apollo\\OneDrive\\DEV\\02.PYTHON\\YoutubeAPI\\Lib\\site-packages"
+    ],
+    "python.linting.pylintEnabled": false
+}

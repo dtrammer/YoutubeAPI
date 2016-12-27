@@ -1,0 +1,7 @@
+{
+	"version": "0.1.0",
+	"command": "C:\\Users\\Apollo\\OneDrive\\DEV\\02.PYTHON\\YoutubeAPI\\Scripts\\python",
+	"isShellCommand": true,
+	"showOutput": "always",
+	"args": ["${file}"]
+}
