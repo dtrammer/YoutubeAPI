@@ -4,7 +4,7 @@ import json
 from requests.auth import HTTPDigestAuth
 from .model import Channel, Video
 
-GoogleAPIKey = "AIzaSyC3_KwHOzCFaU9om8-O1nTyQQDYqRlSg4Q"
+GoogleAPIKey = ""
 
 def get_channel(channelid):
     #Retrieves channel information
