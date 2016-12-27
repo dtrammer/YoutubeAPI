@@ -4,11 +4,9 @@ import json
 from requests.auth import HTTPDigestAuth
 from .model import Channel, Video
 
-GoogleAPIKey = "AIzaSyC3_KwHOzCFaU9om8-O1nTyQQDYqRlSg4Q"
-
-def get_channel(channelid):
+def get_channel(channelid , APIKey):
     #Retrieves channel information
-    url = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" + channelid + "&key=" + GoogleAPIKey
+    url = "https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=" + channelid + "&key=" + APIKey
     r = requests.get(url)
     if r.status_code == 200 :
         result = json.loads(r.text)
@@ -27,14 +25,14 @@ def get_channel(channelid):
         channel.stats["videos"] = result['items'][0]['statistics']['videoCount']
     return channel
 
-def get_videos(channelid , maxresult ):
+def get_videos(channelid , maxresult , APIKey , orderBy = 'viewCount'):
     #Retrieves videos information
     videosContainer = []
     resultsLimit =  50 if maxresult > 50 else maxresult
     elementCount = 0
     nextPageToken = "go"
     
-    url = "https://www.googleapis.com/youtube/v3/search?part=snippet,id&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo&order=viewCount&type=video&key=" + GoogleAPIKey + "&channelId=" + channelid + "&maxResults=" + resultsLimit.__str__()
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet,id&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo&order=" + orderBy + "&type=video&key=" + APIKey + "&channelId=" + channelid + "&maxResults=" + resultsLimit.__str__()
     r = requests.get(url)
     
     while not (nextPageToken is None):
@@ -71,13 +69,13 @@ def get_videos(channelid , maxresult ):
 
     return videosContainer
 
-def get_video_stats(videosContainer):
+def get_video_stats(VideoObjList , APIKey):
     #Retrieves video stats information
     querystring = ""
     queries = []
     counter = 0
 
-    for video in videosContainer:
+    for video in VideoObjList:
         querystring += video.id + ","
         counter += 1
         if counter == 50 :
@@ -91,21 +89,24 @@ def get_video_stats(videosContainer):
 
     elementCount = 0
     for query in queries:
-        url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=" + query + "&key=" + GoogleAPIKey
+        url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=" + query + "&key=" + APIKey
         r = requests.get(url)
         if r.status_code == 200 :
             result = json.loads(r.text)
             for stats in result['items']:
-                videosContainer[elementCount].stats["views"] = stats['statistics']['viewCount']
-                videosContainer[elementCount].stats["likes"] = stats['statistics']['likeCount']
-                videosContainer[elementCount].stats["dislikes"] = stats['statistics']['dislikeCount']
-                videosContainer[elementCount].stats["comments"] = stats['statistics']['commentCount']
+                VideoObjList[elementCount].stats["views"] = stats['statistics']['viewCount']
+                VideoObjList[elementCount].stats["likes"] = stats['statistics']['likeCount']
+                VideoObjList[elementCount].stats["dislikes"] = stats['statistics']['dislikeCount']
+                VideoObjList[elementCount].stats["comments"] = stats['statistics']['commentCount']
                 elementCount += 1
-    return videosContainer
+    return VideoObjList
 
-def search_channels(keywords , maxResult ):
-    #Retrieves channel information based on search criteria, returns -> collection of model.Channel instances
-    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=viewCount&q=" + keywords + "&type=channel&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + GoogleAPIKey
+def search_channels(keywords , maxResult , APIKey , orderBy = "viewCount" ):
+    '''Retrieves channel information based on search criteria, returns -> collection of model.Channel instances
+        Orderby valid values : viewCount, rating, date, videoCount
+        maxResult is maximum 50'''
+    maxResult = 50 if maxResult > 50 else maxResult
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=" + orderBy + "&q=" + keywords + "&type=channel&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + APIKey
     r = requests.get(url)
     channelContainer = []
     if r.status_code == 200 :
@@ -122,9 +123,12 @@ def search_channels(keywords , maxResult ):
             ))
     return channelContainer
 
-def search_videos(keywords , maxResult ):
-    #Retrieves videos information based on search criteria, returns -> collection of model.Video instances
-    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=viewCount&q=" + keywords + "&type=video&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + GoogleAPIKey
+def search_videos(keywords , maxResult , APIKey , orderBy = "viewCount" ):
+    '''Retrieves videos information based on search criteria, returns -> collection of model.Video instances
+            Orderby valid values : viewCount, rating, date, videoCount
+            maxResult is maximum 50 '''
+    maxResult = 50 if maxResult > 50 else maxResult
+    url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=" + maxResult.__str__() + "&order=" + orderBy + "&q=" + keywords + "&type=video&fields=etag%2Citems%2Ckind%2CnextPageToken%2CpageInfo%2CregionCode&key=" + APIKey
     r = requests.get(url)
     videoContainer = []
     if r.status_code == 200 :

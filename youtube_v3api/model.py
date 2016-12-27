@@ -20,7 +20,7 @@ class Channel:
 
 class Video:
     def __init__(self , id , title , desc , pubdate  ,th_d , th_m , th_h , channelid , channeltitle):
-    #Yotube Video model
+    #Youtube Video model
         self.channelid = channelid
         self.id = id
         self.pubdate = pubdate
@@ -33,4 +33,4 @@ class Video:
         self.stats = { 'views':0 , 'likes':0 , 'dislikes':0 , 'comments':0 }
 
     def str_nice(self):
-        return self.id + " - " + self.pubdate + " - " + self.channeltitle + " - " + self.title + self.stats["views"].__str__()
+        return self.id + " - " + self.pubdate + " - " + self.channeltitle + " - " + self.title + " - views : " + self.stats["views"].__str__() + " - likes : " + self.stats["likes"].__str__() + " - dislikes : " + self.stats["dislikes"].__str__()
