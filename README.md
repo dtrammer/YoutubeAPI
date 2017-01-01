@@ -94,21 +94,23 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
         <th colspan=2>Channel</th>
     </tr>
     <tr>
-        <td>id</td><td></td>
+        <td>id</td><td>The youtube channel id</td>
     </tr><tr>
-        <td>.title</td><td></td>
+        <td>title</td><td>Channel name</td>
     </tr><tr>
-        <td>desc</td><td></td>
+        <td>desc</td><td>Channel description</td>
    </tr><tr>
-        <td>pubdate</td><td></td>
+        <td>pubdate</td><td>Creation date</td>
     </tr><tr>
-        <td>thumb_default</td><td></td>
+        <td>thumb_default</td><td>The channel logo</td>
     </tr><tr>
-        <td>thumb_medium</td><td></td>
+        <td>thumb_medium</td><td>Channel medium size banner</td>
     </tr><tr>
-        <td>thumb_high</td><td></td>
-        <td>stats</td><td></td>
-        <td>.videos</td><td></td>
+        <td>thumb_high</td><td>Channel high size banner</td>
+    </tr><tr>
+        <td>stats</td><td>Channel statistics dictionary<br>{'views':0,'comments':0,'subs':0,'videos':0}</td>
+    </tr><tr>
+        <td>videos</td><td>List of model.Video objects</td>
     </tr>
     
 </table>
