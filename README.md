@@ -57,26 +57,7 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
     videoElements = youtube.search_videos_on_keywords(keywords , APIKey , maxResults = 10 , orderBy = 'viewCount')
     
     
-    Objects :
-    
-    class Channel:
-    #Youtube Channel model
-    def __init__(self , id , title , desc , pubdate ,th_d , th_m , th_h ):
-        self.id = id
-        self.title = title
-        self.desc = desc
-        self.pubdate = pubdate
-        self.thumb_default = th_d
-        self.thumb_medium = th_m
-        self.thumb_high = th_h
-        self.stats = {'views':0,'comments':0,'subs':0,'videos':0}
-        self.videos = []
-
-    def __str__(self):
-        return self.id + " - " + self.title
-
-    def str_all(self):
-        return self.id + " - " + self.title + " - " + self.desc + " - " + self.pubdate + " - " + self.thumb_default + " - " + self.thumb_medium + " - " + self.thumb_high
+<h2>Objects reference</h2>
 
 <table>
     <tr>
@@ -107,18 +88,4 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
     </tr>
     
 </table>
-
-Video:
-    def __init__(self , id , title , desc , pubdate  ,th_d , th_m , th_h , channelid , channeltitle):
-    #Youtube Video model
-        self.channelid = channelid
-        self.id = id
-        self.pubdate = pubdate
-        self.title = title
-        self.desc = desc
-        self.thumb_default = th_d
-        self.thumb_medium = th_m
-        self.thumb_high = th_h
-        self.channeltitle = channeltitle
-        self.stats = { 'views':0 , 'likes':0 , 'dislikes':0 , 'comments':0 }
 
