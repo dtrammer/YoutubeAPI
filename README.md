@@ -84,14 +84,23 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
     </tr>
     <tr>
         <td>channelid</td><td>The youtube ID of the channel</td>
+    </tr><tr>
         <td>id</td><td>The youtube ID of the video</td>
+    </tr><tr>
         <td>pubdate</td><td>Video publishing date</td>
+    </tr><tr>
         <td>title</td><td>Title of the video</td>
+    </tr><tr>        
         <td>desc</td><td>Description of the video</td>
+    </tr><tr>
         <td>thumb_default</td><td>The video default thumbnail image link</td>
+    </tr><tr>
         <td>thumb_medium</td><td>Medium size thumbnail link</td>
+   </tr><tr>
         <td>thumb_high</td><td>High size thumbnail link</td>
+    </tr><tr>
         <td>channeltitle</td><td>The channel title</td>
+    </tr><tr>
         <td>stats</td><td>A dictionary containing the video statistics, keys<br>
                            Keys { 'views':0 , 'likes':0 , 'dislikes':0 , 'comments':0 }</td>
                            
