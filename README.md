@@ -61,7 +61,7 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
 
 <table>
     <tr>
-    <th colspan=2>Video</th>
+        <th colspan=2>Video</th>
     </tr>
     <tr>
         <td>channelid</td><td>The youtube ID of the channel</td>
@@ -82,9 +82,33 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
     </tr><tr>
         <td>channeltitle</td><td>The channel title</td>
     </tr><tr>
-        <td>stats</td><td>A dictionary containing the video statistics, keys<br>
+        <td>stats</td><td>A dictionary containing the video statistics<br/>
                            Keys { 'views':0 , 'likes':0 , 'dislikes':0 , 'comments':0 }</td>
                            
+    </tr>
+    
+</table>
+
+<table>
+    <tr>
+        <th colspan=2>Channel</th>
+    </tr>
+    <tr>
+        <td>id</td><td></td>
+    </tr><tr>
+        <td>.title</td><td></td>
+    </tr><tr>
+        <td>desc</td><td></td>
+   </tr><tr>
+        <td>pubdate</td><td></td>
+    </tr><tr>
+        <td>thumb_default</td><td></td>
+    </tr><tr>
+        <td>thumb_medium</td><td></td>
+    </tr><tr>
+        <td>thumb_high</td><td></td>
+        <td>stats</td><td></td>
+        <td>.videos</td><td></td>
     </tr>
     
 </table>
