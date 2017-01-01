@@ -59,7 +59,7 @@ Download the wheel file from the 'dist' folder and launch virtual env in command
     
 <h2>Objects reference</h2>
 
-<table>
+<table style="margin:auto;">
     <tr>
         <th colspan=2>Video</th>
     </tr>
